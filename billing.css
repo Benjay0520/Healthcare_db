@@ -1,0 +1,729 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f4f6f9;
+  color: #212529;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #0033A0, #D62828);
+  color: white;
+  min-height: 100vh;
+  padding: 20px 10px;
+  position: fixed;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar a i {
+  margin-right: 10px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  background: linear-gradient(90deg, #0033A0, #FFC107);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.topbar h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  padding: 6px 12px;
+  background: #D62828;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #b21f1f;
+}
+
+/* Billing Container */
+.billing-container {
+  padding: 40px 30px 20px 30px;
+}
+
+/* Billing Form */
+#billingForm {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#billingForm input,
+#billingForm select,
+#billingForm button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#billingForm button {
+  background: linear-gradient(90deg, #0033A0, #00236e);
+  color: white;
+  grid-column: span 3;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+#billingForm button:hover {
+  background: linear-gradient(90deg, #0044cc, #001f5c);
+}
+
+/* Billing Filter Bar */
+.billing-filter-bar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.billing-filter-bar input,
+.billing-filter-bar select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Billing Table */
+.billing-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.billing-table th,
+.billing-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.billing-table th {
+  background: linear-gradient(90deg, #0033A0, #0044cc);
+  color: white;
+}
+
+.billing-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.billing-table tr:hover {
+  background: #f1f1f1;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #28a745;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+/* Buttons */
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-btn {
+  background: #FFC107;
+  color: black;
+}
+
+.edit-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn {
+  background: #D62828;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #b21f1f;
+}
+
+/* Billing Pagination */
+.billing-pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.billing-pagination button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+}
+
+.billing-pagination button:hover {
+  background: #0033A0;
+  color: white;
+}
+
+/* Accessibility: Focus styles */
+#billingForm input:focus,
+#billingForm select:focus,
+#billingForm button:focus {
+  outline: 2px solid #0033A0;
+  outline-offset: 2px;
+}
+
+/* Enhanced Filter + Search UI */
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+
+  /* subtle card look to separate controls from content */
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,250,250,0.7));
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 16px rgba(16,24,40,0.03);
+}
+
+/* Label styling inside filter */
+.filter-section label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #0033A0;
+  margin-right: 6px;
+}
+
+/* Rounded pill dropdown */
+#statusFilter {
+  padding: 8px 36px 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  min-width: 150px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+#statusFilter:focus {
+  outline: none;
+  border-color: #0033A0;
+  box-shadow: 0 6px 18px rgba(0,51,160,0.08);
+}
+
+/* Search box with icon and smooth focus */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 220px;
+  flex: 1 1 260px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 36px 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  background: #fff;
+}
+
+.search-box input::placeholder {
+  color: #9aa4b2;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #0033A0;
+  box-shadow: 0 8px 28px rgba(0,51,160,0.08);
+  transform: translateY(-1px);
+}
+
+/* search icon */
+.search-box i {
+  position: absolute;
+  right: 12px;
+  color: #6b7280;
+  font-size: 14px;
+  pointer-events: none;
+  transition: color 0.14s ease;
+}
+
+/* make controls accessible and consistent in dark/contrast modes */
+body.dark-mode .filter-section,
+body.contrast-mode .filter-section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.03));
+  border-color: rgba(255,255,255,0.06);
+}
+
+body.dark-mode #statusFilter,
+body.contrast-mode #statusFilter,
+body.dark-mode .search-box input,
+body.contrast-mode .search-box input {
+  background: rgba(36,38,45,0.85);
+  color: #ffd700;
+  border-color: rgba(255,215,0,0.12);
+}
+
+body.dark-mode .search-box i,
+body.contrast-mode .search-box i {
+  color: #ffd700;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 720px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #statusFilter {
+    min-width: 100%;
+  }
+
+  .search-box {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .billing-container {
+    padding: 20px 5px 10px 5px;
+  }
+  #billingForm {
+    grid-template-columns: 1fr;
+  }
+  .billing-filter-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .billing-table th,
+  .billing-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: linear-gradient(135deg, #181a1b 0%, #0033A0 70%, #D62828 100%);
+  color: #e0e0e0;
+}
+
+body.dark-mode .sidebar {
+  background: linear-gradient(180deg, #0033A0 0%, #D62828 100%);
+  color: #FFD700;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .main-content,
+body.dark-mode .billing-container {
+  background: linear-gradient(120deg, #232526 60%, #0033A0 100%);
+  color: #e0e0e0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  border-radius: 12px;
+}
+
+body.dark-mode .topbar {
+  background: linear-gradient(90deg, #0033A0 0%, #FFD700 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #FFD700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .billing-table {
+  background: #00236e;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .billing-table th {
+  background: linear-gradient(90deg, #D62828 0%, #FFC107 100%);
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #FFD700;
+}
+
+body.dark-mode .billing-table td {
+  background: #0033A0;
+  color: #fff;
+  font-size: 15px;
+  border-bottom: 1px solid #232526;
+}
+
+body.dark-mode .billing-table tr:nth-child(even) td {
+  background: #00236e;
+}
+
+body.dark-mode .billing-table tr:hover td {
+  background: #001f5c;
+  color: #FFD700;
+  transition: background 0.2s, color 0.2s;
+}
+
+body.dark-mode .status-badge {
+  background: #FFD700;
+  color: #D62828;
+  font-weight: bold;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .mode-btn {
+  background: #0033A0;
+  color: #FFD700;
+  border-color: #FFD700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .mode-btn:focus,
+body.dark-mode .mode-btn:hover {
+  background: #FFD700;
+  color: #0033A0;
+  border-color: #0033A0;
+}
+
+body.dark-mode #billingForm input,
+body.dark-mode #billingForm select,
+body.dark-mode #billingForm button {
+  background: #232526;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode #billingForm input:focus,
+body.dark-mode #billingForm select:focus,
+body.dark-mode #billingForm button:focus {
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+body.dark-mode .billing-filter-bar,
+body.dark-mode .billing-pagination {
+  background: transparent;
+  color: #FFD700;
+}
+
+/* Contrast Mode */
+body.contrast-mode {
+  background: linear-gradient(135deg, #FFD700 0%, #fff 60%, #D62828 100%);
+  color: #0033A0;
+}
+
+body.contrast-mode .sidebar {
+  background: linear-gradient(180deg, #FFD700 0%, #D62828 100%);
+  color: #0033A0;
+}
+
+body.contrast-mode .main-content,
+body.contrast-mode .billing-container {
+  background: linear-gradient(120deg, #fff 60%, #FFD700 100%);
+  color: #D62828;
+}
+
+body.contrast-mode .topbar {
+  background: linear-gradient(90deg, #FFD700 0%, #D62828 100%);
+  color: #0033A0;
+}
+
+body.contrast-mode .billing-table {
+  background: #fff;
+  color: #D62828;
+}
+
+body.contrast-mode .billing-table th {
+  background: linear-gradient(90deg, #FFD700 0%, #0033A0 100%);
+  color: #D62828;
+}
+
+body.contrast-mode .billing-table td {
+  background: transparent;
+  color: #D62828;
+}
+
+body.contrast-mode .billing-filter-bar,
+body.contrast-mode .billing-pagination {
+  background: transparent;
+  color: #D62828;
+}
+
+body.contrast-mode .status-badge {
+  background: #0033A0;
+  color: #FFD700;
+}
+
+body.contrast-mode .mode-btn {
+  background: #FFD700;
+  color: #D62828;
+  border-color: #D62828;
+}
+
+body.contrast-mode .mode-btn:focus,
+body.contrast-mode .mode-btn:hover {
+  background: #D62828;
+  color: #FFD700;
+}
+
+/* Compact Mode */
+body.compact-mode .billing-container,
+body.compact-mode #billingForm,
+body.compact-mode .billing-table th,
+body.compact-mode .billing-table td,
+body.compact-mode .billing-filter-bar,
+body.compact-mode .billing-pagination {
+  padding: 4px !important;
+  margin: 2px 0 !important;
+  font-size: 12px !important;
+}
+
+body.compact-mode #billingForm input,
+body.compact-mode #billingForm select,
+body.compact-mode #billingForm button {
+  padding: 6px !important;
+  font-size: 12px !important;
+}
+
+/* Large Text Mode */
+body.large-text-mode,
+body.large-text-mode .billing-container,
+body.large-text-mode #billingForm,
+body.large-text-mode .billing-table th,
+body.large-text-mode .billing-table td,
+body.large-text-mode .billing-filter-bar,
+body.large-text-mode .billing-pagination {
+  font-size: 20px !important;
+}
+
+body.large-text-mode #billingForm input,
+body.large-text-mode #billingForm select,
+body.large-text-mode #billingForm button {
+  font-size: 20px !important;
+  padding: 14px !important;
+}
+
+/* Mode Toggles */
+.mode-toggles {
+  display: flex;
+  gap: 8px;
+  margin-left: 18px;
+}
+
+.mode-btn {
+  background: #f4f6f9;
+  color: #0033A0;
+  border: 2px solid #0033A0;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.mode-btn:focus,
+.mode-btn:hover {
+  background: #0033A0;
+  color: #fff;
+  border-color: #FFC107;
+  outline: none;
+}
+
+/* Active state for toggles */
+body.dark-mode #darkModeBtn,
+body.contrast-mode #contrastModeBtn,
+body.compact-mode #compactModeBtn,
+body.large-text-mode #largeTextBtn {
+  background: #FFC107;
+  color: #0033A0;
+  border-color: #0033A0;
+}
+
+/* Smooth transitions for Billing Module */
+body,
+.main-content,
+.billing-container,
+.sidebar,
+.topbar,
+#billingForm,
+#billingForm input,
+#billingForm select,
+#billingForm button,
+.billing-table,
+.billing-table th,
+.billing-table td,
+.status-badge,
+.mode-btn,
+.logout-btn,
+.billing-pagination,
+.billing-pagination button {
+  transition: background-color 0.4s ease,
+              color 0.4s ease,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease,
+              font-size 0.4s ease;
+}
+
+/* Dark Mode Fix for Pagination Buttons */
+body.dark-mode .billing-pagination button {
+  background: #232526;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .billing-pagination button:hover {
+  background: #0033A0;
+  color: #FFD700;
+  border-color: #FFD700;
+}
+
+/* Smooth transitions for Billing Module */
+body,
+.main-content,
+.billing-container,
+.sidebar,
+.topbar,
+#billingForm,
+#billingForm input,
+#billingForm select,
+#billingForm button,
+.billing-table,
+.billing-table th,
+.billing-table td,
+.status-badge,
+.mode-btn,
+.logout-btn,
+.billing-pagination,
+.billing-pagination button {
+  transition: background-color 0.4s ease,
+              color 0.4s ease,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease,
+              font-size 0.4s ease;
+}
+
+/* Smooth transitions */
+body, .main-content, .container, .sidebar, .topbar, table, th, td {
+  transition: background 0.3s, color 0.3s, font-size 0.3s;
+}
+
+* {
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Appointments-specific overrides (optional) */
+.topbar h1 i {
+  color: #FFC107;
+}
+
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}

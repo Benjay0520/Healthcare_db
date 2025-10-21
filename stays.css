@@ -1,0 +1,258 @@
+/* ============================
+   Stays & Admissions Module
+   Based on global styles
+============================ */
+
+/* Container */
+.stays-container {
+  padding: 40px 30px 20px 30px;
+}
+
+/* Admit Form */
+#admitForm {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#admitForm input,
+#admitForm select,
+#admitForm button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#admitForm button {
+  background: linear-gradient(90deg, #0033A0, #00236e);
+  color: white;
+  grid-column: span 3;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+#admitForm button:hover {
+  background: linear-gradient(90deg, #0044cc, #001f5c);
+}
+
+/* Admissions Table */
+.stays-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.stays-table th,
+.stays-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.stays-table th {
+  background: linear-gradient(90deg, #0033A0, #0044cc);
+  color: white;
+}
+
+.stays-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.stays-table tr:hover {
+  background: #f1f1f1;
+}
+
+/* Status Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.admitted {
+  background: #28a745;
+  color: #fff;
+}
+
+.badge.discharged {
+  background: #6c757d;
+  color: #fff;
+}
+
+/* Action Buttons (Discharge) */
+.stays-table button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  background: #D62828;
+  color: white;
+}
+
+.stays-table button:hover {
+  background: #b21f1f;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .stays-container {
+    padding: 20px 5px 10px 5px;
+  }
+  #admitForm {
+    grid-template-columns: 1fr;
+  }
+  .stays-table th,
+  .stays-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .stays-container {
+  background: transparent;
+}
+
+body.dark-mode #admitForm {
+  background: #232526;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+}
+
+body.dark-mode .stays-table {
+  background: #00236e;
+  color: #fff;
+}
+
+body.dark-mode .stays-table th {
+  background: linear-gradient(90deg, #D62828 0%, #FFC107 100%);
+  color: #fff;
+}
+
+body.dark-mode .stays-table td {
+  background: #0033A0;
+  color: #fff;
+}
+
+body.dark-mode .badge.admitted {
+  background: #FFD700;
+  color: #0033A0;
+}
+
+body.dark-mode .badge.discharged {
+  background: #444;
+  color: #FFD700;
+}
+
+body.dark-mode .stays-table button {
+  background: #D62828;
+  color: #fff;
+}
+
+body.dark-mode .stays-table button:hover {
+  background: #b21f1f;
+}
+
+/* ============================
+   Dark Mode Overrides
+============================ */
+body.dark-mode #admitForm {
+  background: #232526;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+}
+
+body.dark-mode .stays-table {
+  background: #00236e;
+  color: #fff;
+}
+
+body.dark-mode .stays-table th {
+  background: linear-gradient(90deg, #D62828 0%, #FFC107 100%);
+  color: #fff;
+}
+
+body.dark-mode .stays-table td {
+  background: #0033A0;
+  color: #fff;
+}
+
+body.dark-mode .badge.admitted {
+  background: #FFD700;
+  color: #0033A0;
+}
+
+body.dark-mode .badge.discharged {
+  background: #444;
+  color: #FFD700;
+}
+
+body.dark-mode .stays-table button {
+  background: #D62828;
+  color: #fff;
+}
+body.dark-mode .stays-table button:hover {
+  background: #b21f1f;
+}
+
+/* ============================
+   High Contrast Mode
+============================ */
+body.contrast-mode #admitForm {
+  background: #fff;
+  border: 2px solid #0033A0;
+  color: #D62828;
+}
+
+body.contrast-mode .stays-table {
+  background: #fff;
+  color: #D62828;
+}
+
+body.contrast-mode .stays-table th {
+  background: linear-gradient(90deg, #FFD700 0%, #0033A0 100%);
+  color: #D62828;
+}
+
+body.contrast-mode .badge.admitted {
+  background: #0033A0;
+  color: #FFD700;
+}
+
+body.contrast-mode .badge.discharged {
+  background: #D62828;
+  color: #FFD700;
+}
+
+/* ============================
+   Compact Mode
+============================ */
+body.compact-mode #admitForm,
+body.compact-mode .stays-table th,
+body.compact-mode .stays-table td {
+  padding: 6px !important;
+  font-size: 12px !important;
+}
+
+/* ============================
+   Large Text Mode
+============================ */
+body.large-text-mode #admitForm,
+body.large-text-mode .stays-table th,
+body.large-text-mode .stays-table td {
+  font-size: 20px !important;
+  padding: 14px !important;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICCT Healthcare System - Rooms & Floors</title>
+  <link rel="stylesheet" href="rooms.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="LOGO.png" alt="ICCT Logo" class="logo">
+    </div>
+    <a href="index.html"><i class="fa-solid fa-users"></i> Patients</a>
+    <a href="doctor.html"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+    <a href="appointments.html"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+    <a href="billing.html"><i class="fa-solid fa-credit-card"></i> Billing</a>
+    <a href="rooms.html" class="active"><i class="fa-solid fa-hospital"></i> Rooms & Floors</a>
+    <a href="stays.html" title="Patient Stays"><i class="fa-solid fa-bed"></i> Patient Stays</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <h1><i class="fa-solid fa-heart-pulse"></i> ICCT Healthcare System</h1>
+      <div class="user-info">
+        <span><i class="fa-solid fa-user-shield"></i> Admin</span>
+        <button class="logout-btn" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        <div class="mode-toggles">
+          <button id="darkModeBtn" class="mode-btn" aria-label="Dark Mode" title="Dark Mode"><i class="fa-solid fa-moon"></i></button>
+          <button id="contrastModeBtn" class="mode-btn" aria-label="High Contrast" title="High Contrast"><i class="fa-solid fa-circle-half-stroke"></i></button>
+          <button id="compactModeBtn" class="mode-btn" aria-label="Compact Mode" title="Compact Mode"><i class="fa-solid fa-compress"></i></button>
+          <button id="largeTextBtn" class="mode-btn" aria-label="Large Text" title="Large Text"><i class="fa-solid fa-text-height"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="floorsList" class="floors-list"></div>
+  </div>
+
+  <script src="rooms.js"></script>
+</body>
+</html>

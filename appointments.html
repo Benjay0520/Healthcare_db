@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICCT Healthcare System - Appointments</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="appointments.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="LOGO.png" alt="ICCT Logo" class="logo">
+    </div>
+    <a href="index.html" title="Patients"><i class="fa-solid fa-users"></i> Patients</a>
+    <a href="doctor.html" title="Doctors"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+    <a href="appointments.html" class="active" title="Appointments"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+    <a href="billing.html" title="Billing"><i class="fa-solid fa-credit-card"></i> Billing</a>
+    <a href="rooms.html" title="Rooms & Floors"><i class="fa-solid fa-hospital"></i> Rooms & Floors</a>
+    <a href="stays.html" title="Patient Stays"><i class="fa-solid fa-bed"></i> Patient Stays</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <h1><i class="fa-solid fa-heart-pulse"></i> ICCT Healthcare System</h1>
+      <div class="user-info">
+        <span><i class="fa-solid fa-user-shield"></i> Admin</span>
+        <button class="logout-btn" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        <div class="mode-toggles">
+          <button id="darkModeBtn" class="mode-btn" aria-label="Dark Mode" title="Dark Mode"><i class="fa-solid fa-moon"></i></button>
+          <button id="contrastModeBtn" class="mode-btn" aria-label="High Contrast" title="High Contrast"><i class="fa-solid fa-circle-half-stroke"></i></button>
+          <button id="compactModeBtn" class="mode-btn" aria-label="Compact Mode" title="Compact Mode"><i class="fa-solid fa-compress"></i></button>
+          <button id="largeTextBtn" class="mode-btn" aria-label="Large Text" title="Large Text"><i class="fa-solid fa-text-height"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2><i class="fa-solid fa-calendar-plus"></i> Schedule Appointment</h2>
+      <form id="appointmentForm">
+        <input type="hidden" id="appointment_id">
+        <select id="patient_id" required><option value="">Select Patient</option></select>
+        <select id="doctor_id" required><option value="">Select Doctor</option></select>
+        <input type="date" id="appointment_date" required>
+        <input type="time" id="appointment_time" required>
+        <select id="status" required>
+          <option value="Scheduled">Scheduled</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <input type="text" id="notes" placeholder="Notes (optional)">
+        <button type="submit" id="submitBtn"><i class="fa-solid fa-plus"></i> Add Appointment</button>
+      </form>
+
+      <h3><i class="fa-solid fa-list"></i> Appointment List</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Specialty</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentTableBody"></tbody>
+      </table>
+
+      <div class="pagination">
+        <button id="prevPage" aria-label="Previous Page"><i class="fa-solid fa-angle-left"></i></button>
+        <span id="pageInfo">Page 1 of 1</span>
+        <button id="nextPage" aria-label="Next Page"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="appointments.js"></script>
+</body>
+</html>

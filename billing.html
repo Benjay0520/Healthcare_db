@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICCT Healthcare System - Billing</title>
+  <link rel="stylesheet" href="billing.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="LOGO.png" alt="ICCT Logo" class="logo">
+    </div>
+    <a href="index.html"><i class="fa-solid fa-users"></i> Patients</a>
+    <a href="doctor.html"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+    <a href="appointments.html"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+    <a href="billing.html" class="active"><i class="fa-solid fa-credit-card"></i> Billing</a>
+    <a href="rooms.html"><i class="fa-solid fa-hospital"></i> Rooms & Floors</a>
+    <a href="stays.html" title="Patient Stays"><i class="fa-solid fa-bed"></i> Patient Stays</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Topbar -->
+    <div class="topbar">
+      <h1><i class="fa-solid fa-heart-pulse"></i> ICCT Healthcare System</h1>
+      <div class="user-info">
+        <span><i class="fa-solid fa-user-shield"></i> Admin</span>
+        <button class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        <div class="mode-toggles">
+          <button id="darkModeBtn" class="mode-btn" title="Dark Mode"><i class="fa-solid fa-moon"></i></button>
+          <button id="contrastModeBtn" class="mode-btn" title="High Contrast"><i class="fa-solid fa-circle-half-stroke"></i></button>
+          <button id="compactModeBtn" class="mode-btn" title="Compact"><i class="fa-solid fa-compress"></i></button>
+          <button id="largeTextBtn" class="mode-btn" title="Large Text"><i class="fa-solid fa-text-height"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Billing Container -->
+    <div class="billing-container">
+      <h2><i class="fa-solid fa-file-invoice-dollar"></i> Add Billing Record</h2>
+
+      <!-- Billing Form -->
+      <form id="billingForm">
+        <input type="hidden" id="billing_id">
+        <select id="patient_id" required>
+          <option value="">Select Patient</option>
+        </select>
+        <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+        <input type="date" id="billing_date" required>
+        <select id="status" required>
+          <option value="Unpaid">Unpaid</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+        </select>
+        <input type="text" id="notes" placeholder="Notes (optional)">
+        <button type="submit" id="submitBtn"><i class="fa-solid fa-plus"></i> Add Billing</button>
+      </form>
+
+      <!-- Filter + Search (Patients-style search design) -->
+      <div class="filter-section">
+        <label for="statusFilter"><i class="fa-solid fa-filter"></i> Status:</label>
+        <select id="statusFilter">
+          <option value="">All</option>
+          <option value="Unpaid">Unpaid</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+        </select>
+
+        <div class="search-box">
+          <input type="text" id="searchBox" placeholder="Search by patient or notes...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+
+      <!-- Billing Table -->
+      <h3><i class="fa-solid fa-list"></i> Billing Records</h3>
+      <table class="billing-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="billingTableBody"></tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="billing-pagination">
+        <button id="prevPage" title="Previous"><i class="fa-solid fa-angle-left"></i></button>
+        <span id="pageInfo">Page 1 of 1</span>
+        <button id="nextPage" title="Next"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="billing.js"></script>
+</body>
+</html>
